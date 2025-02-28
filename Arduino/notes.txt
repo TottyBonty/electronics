@@ -17,6 +17,8 @@ Smoke Detector
 
 	https://lastminuteengineers.com/mq2-gas-senser-arduino-tutorial/
 	
-SMS Messaging with Arduino and SIM800 Your Complete Guide
-	https://www.youtube.com/watch?v=Rc7RAUrfcqs
+SMS Messaging with Arduino and SIM800L V2
+	https://www.youtube.com/watch?v=THCJWWsyh10
 	https://www.youtube.com/watch?v=csWOiUv4mZ8
+
+	
