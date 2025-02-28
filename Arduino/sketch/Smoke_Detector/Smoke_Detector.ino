@@ -1,4 +1,3 @@
-
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
 
@@ -36,7 +35,7 @@ void setup() {
   
   //noTone(buzzer);
 
-  delay(10000); // allow the MQ-2 to warm up  
+  delay(20000); // allow the MQ-2 to warm up  
 }
 
 void loop() {
@@ -51,12 +50,12 @@ void loop() {
   lcd.print("Smoke : ");
       
   if (sensorValue > 300) {
-    lcd.print("Yes");
+    lcd.print("Detected");
     //tone(buzzer,1000,200);
     digitalWrite(ledRed,HIGH);
     digitalWrite(ledGreen,LOW);
   } else {
-    lcd.print("No ");
+    lcd.print("None    ");
     //noTone(buzzer);    
     digitalWrite(ledRed,LOW);
     digitalWrite(ledGreen,HIGH);
