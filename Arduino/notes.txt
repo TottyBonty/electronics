@@ -9,12 +9,13 @@ How to Use I2C LCD with Arduino | Very Easy Arduino LCD I2C Tutorial | Arduino 1
 
 	https://www.youtube.com/watch?v=UezoCbBSavQ
 
-
 How to interface MQ-2 Gas Sensor with Arduino Uno (with Code and Library)
 	https://www.youtube.com/watch?v=cmL7QgTNv7M
 
 Smoke Detector
 	https://www.youtube.com/watch?v=hQ61BkvJCuc
+
+	https://lastminuteengineers.com/mq2-gas-senser-arduino-tutorial/
 	
 SMS Messaging with Arduino and SIM800 Your Complete Guide
 	https://www.youtube.com/watch?v=Rc7RAUrfcqs
