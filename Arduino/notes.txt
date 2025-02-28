@@ -1,6 +1,7 @@
 Tutorial
 
 	https://www.youtube.com/watch?v=FsJuSoDJVqk
+	https://www.youtube.com/watch?v=qGbuzuVSzVs
 
 How to Use I2C LCD with Arduino | Very Easy Arduino LCD I2C Tutorial | Arduino 16x2 LCD I2C Tutorial
 
