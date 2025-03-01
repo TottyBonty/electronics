@@ -24,6 +24,8 @@ SMS Messaging with Arduino and SIM800L V2
 	https://www.youtube.com/watch?v=THCJWWsyh10
 	https://www.youtube.com/watch?v=csWOiUv4mZ8
 
+	https://miliohm.com/sim800l-v2-tutorial-with-arduino/
+
 Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 
 	https://lastminuteengineers.com/ws2812b-arduino-tutorial/
