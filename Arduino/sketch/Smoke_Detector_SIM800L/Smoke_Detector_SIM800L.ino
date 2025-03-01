@@ -49,22 +49,6 @@ void setup() {
   setupSIM800L();
 }
 
-void lcdPrint(String message, int x, int y) {
-  lcd.setCursor(x, y);
-  lcd.print(message);  
-}
-
-void setupSIM800L() {
-  mySerial.begin(9600);
-  
-  lcd.clear();
-  lcdPrint("SIM800L Initializing...", 0, 0);
-  Serial.println("SIM800L Initializing..."); 
-  
-  delay(1000);
-  mySerial.println("AT");
-}
-
 void loop() {
   sensorValue = analogRead(smokeA0);
  
@@ -74,7 +58,7 @@ void loop() {
     lcd.print("Detected");
     
     if (smokeDetected == 0) {
-      SendMessage("WARNING Smoke Detected!!!");
+      sendMessage("WARNING Smoke Detected!!!");
       smokeDetected = 1;
     }
     
@@ -85,7 +69,7 @@ void loop() {
     lcd.print("None    ");
     
     if (smokeDetected == 1) {
-      SendMessage("No more Smoke Detected.");
+      sendMessage("No more Smoke Detected.");
       smokeDetected = 0;
     }
 
@@ -105,7 +89,27 @@ void loop() {
   // }
 }
 
-void SendMessage(String message){
+
+
+void lcdPrint(String message, int x, int y) {
+  lcd.setCursor(x, y);
+  lcd.print(message);  
+}
+
+void setupSIM800L() {
+  mySerial.begin(9600);
+  
+  lcd.clear();
+  lcdPrint("SIM800L", 0, 0);
+  lcdPrint("Initializing...", 0, 1);
+  Serial.println("SIM800L Initializing..."); 
+  
+  delay(1000);
+  mySerial.println("AT");
+  lcd.clear();  
+}
+
+void sendMessage(String message){
   mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
   Serial.println(readSerial());
   mySerial.println("AT+CMGS=\"" + number + "\"");
