@@ -16,9 +16,9 @@ LiquidCrystal_I2C lcd(lcdAddress, lcd_cols, lcd_rows);  //Defining 16 columns an
 const int smokeA0 = A0;
 
 //Output Pin declaration
-//int buzzer = 11;
-const int ledGreen = 12;
+const int buzzer = 9;
 const int ledRed = 8;
+const int ledGreen = 7;
 
 //Sensor Smoke variables
 const int smokeThreshold = 200;
@@ -27,9 +27,9 @@ float sensorValue;
 int smokeDetected = 0;
 
 void setup() {
-  //pinMode(buzzer,OUTPUT);
-  //pinMode(ledGreen,OUTPUT);
-  //pinMode(ledRed,OUTPUT);
+  pinMode(buzzer,OUTPUT);
+  pinMode(ledGreen,OUTPUT);
+  pinMode(ledRed,OUTPUT);
   
   pinMode(smokeA0,INPUT);
 
@@ -40,12 +40,15 @@ void setup() {
   lcd.clear();
   
   lcdPrint("MQ2 Sensor", 0, 0);
-  lcdPrint("warming up", 0, 1);
-  
-  //noTone(buzzer);
-
+  lcdPrint("warming up", 0, 1);  
   delay(20000); // allow the MQ-2 to warm up
   
+  lcd.clear();
+  lcdPrint("Testing Buzzer", 0, 0);
+  tone(buzzer,1000,200);
+  delay(2000);
+  noTone(buzzer);
+
   setupSIM800L();
 }
 
@@ -62,9 +65,9 @@ void loop() {
       smokeDetected = 1;
     }
     
-    //tone(buzzer,1000,200);
-    //digitalWrite(ledRed,HIGH);
-    //digitalWrite(ledGreen,LOW);
+    tone(buzzer,1000,200);
+    digitalWrite(ledRed,HIGH);
+    digitalWrite(ledGreen,LOW);
   } else {
     lcd.print("None    ");
     
@@ -73,9 +76,9 @@ void loop() {
       smokeDetected = 0;
     }
 
-    // noTone(buzzer);    
-    // digitalWrite(ledRed,LOW);
-    // digitalWrite(ledGreen,HIGH);
+    noTone(buzzer);    
+    digitalWrite(ledRed,LOW);
+    digitalWrite(ledGreen,HIGH);
   }
 
   lcdPrint("Value : ", 0, 1);
@@ -88,8 +91,6 @@ void loop() {
   //   Serial.println(mySerial.readString());
   // }
 }
-
-
 
 void lcdPrint(String message, int x, int y) {
   lcd.setCursor(x, y);
@@ -125,3 +126,4 @@ String readSerial(){
     return mySerial.readString();
   }
 }
+
