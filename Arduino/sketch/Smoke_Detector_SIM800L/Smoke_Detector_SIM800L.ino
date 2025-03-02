@@ -4,7 +4,7 @@
 
 //SIM800L declaration
 SoftwareSerial mySerial(10,11);
-String number = "+639189798239"; //-> change with the number where we send the SMS message
+String receiverNumber = "+639xxxxxxxxx"; //-> change with the number where we send the SMS message
 
 //LCD I2C declaration
 const uint8_t lcdAddress = 0x3F;
@@ -112,7 +112,7 @@ void setupSIM800L() {
 void sendMessage(String message){
   mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
   Serial.println(readSerial());
-  mySerial.println("AT+CMGS=\"" + number + "\"");
+  mySerial.println("AT+CMGS=\"" + receiverNumber + "\"");
   Serial.println(readSerial());
   mySerial.println(message);
   mySerial.println((char)26);
