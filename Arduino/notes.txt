@@ -33,5 +33,6 @@ Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 
  ESP32 Microcontroller
 	https://www.youtube.com/watch?v=AitCKcyjHuQ
+	https://www.youtube.com/watch?v=CD8VJl27n94
 
 	
