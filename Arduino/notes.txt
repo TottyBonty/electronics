@@ -24,6 +24,7 @@ SMS Messaging with Arduino and SIM800L V2
 	https://www.youtube.com/watch?v=THCJWWsyh10
 	https://www.youtube.com/watch?v=csWOiUv4mZ8
 	https://www.youtube.com/watch?v=8QWKsl7C37I
+	https://www.youtube.com/watch?v=uLJqNfX81C4
 
 	https://miliohm.com/sim800l-v2-tutorial-with-arduino/
 
