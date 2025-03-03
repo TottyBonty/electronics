@@ -3,7 +3,7 @@
 #include <SoftwareSerial.h>
 
 //SIM800L declaration
-SoftwareSerial mySerial(10,11);
+SoftwareSerial mySerial(10, 11);
 String receiverNumber = "+639xxxxxxxxx"; //-> change with the number where we send the SMS message
 
 //LCD I2C declaration
