@@ -39,3 +39,6 @@ Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 DIY Arduino Uno
 
 	https://www.circuits-diy.com/how-to-make-your-own-arduino-uno-pcb-atmega328p/
+
+Best Way to Play Audio on Arduino! DFPlayer mini / MP3-TF-16p Tutorial
+	http://youtube.com/watch?v=7WiSeQxb1bU
