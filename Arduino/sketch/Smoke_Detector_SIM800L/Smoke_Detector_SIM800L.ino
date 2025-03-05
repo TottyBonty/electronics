@@ -3,8 +3,8 @@
 #include <SoftwareSerial.h>
 
 //SIM800L declaration
-SoftwareSerial mySerial(10, 11);
-String receiverNumber = "+639xxxxxxxxx"; //-> change with the number where we send the SMS message
+SoftwareSerial mySerial(10,11);
+String receiverNumber = "+63918xxxxxx"; //-> change with the number where we send the SMS message
 
 //LCD I2C declaration
 const uint8_t lcdAddress = 0x3F;
@@ -25,6 +25,10 @@ const int smokeThreshold = 200;
 float sensorValue;
 
 int smokeDetected = 0;
+
+const int sim800LEnabled = 1;
+
+const String blankLine = "                ";
 
 void setup() {
   pinMode(buzzer,OUTPUT);
@@ -67,6 +71,8 @@ void loop() {
     
     tone(buzzer,1000,200);
     digitalWrite(ledRed,HIGH);
+    delay(1000);
+    digitalWrite(ledRed,LOW);
     digitalWrite(ledGreen,LOW);
   } else {
     lcd.print("None    ");
@@ -81,6 +87,7 @@ void loop() {
     digitalWrite(ledGreen,HIGH);
   }
 
+  lcdPrint(blankLine, 0, 1);
   lcdPrint("Value : ", 0, 1);
   lcd.print(sensorValue);
   
@@ -98,26 +105,35 @@ void lcdPrint(String message, int x, int y) {
 }
 
 void setupSIM800L() {
-  mySerial.begin(9600);
-  
   lcd.clear();
-  lcdPrint("SIM800L", 0, 0);
-  lcdPrint("Initializing...", 0, 1);
-  Serial.println("SIM800L Initializing..."); 
+  if (sim800LEnabled == 1) {
+    mySerial.begin(9600);
   
-  delay(1000);
-  mySerial.println("AT");
-  lcd.clear();  
+    lcdPrint("SIM800L", 0, 0);
+    lcdPrint("Initializing...", 0, 1);
+    Serial.println("SIM800L Initializing..."); 
+  
+    delay(1000);
+    mySerial.println("AT");
+  } else {
+    lcdPrint("SIM800L", 0, 0);
+    lcdPrint("disabled", 0, 1);
+    delay(1000);
+  }
+
+  lcd.clear();
 }
 
 void sendMessage(String message){
-  mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
-  Serial.println(readSerial());
-  mySerial.println("AT+CMGS=\"" + receiverNumber + "\"");
-  Serial.println(readSerial());
-  mySerial.println(message);
-  mySerial.println((char)26);
-  Serial.println(readSerial());
+  if (sim800LEnabled == 1) {
+    mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
+    Serial.println(readSerial());
+    mySerial.println("AT+CMGS=\"" + receiverNumber + "\"");
+    Serial.println(readSerial());
+    mySerial.println(message);
+    mySerial.println((char)26);
+    Serial.println(readSerial());
+  }
 }
 
 String readSerial(){
@@ -126,4 +142,3 @@ String readSerial(){
     return mySerial.readString();
   }
 }
-
