@@ -15,6 +15,8 @@ How to Use I2C LCD with Arduino | Very Easy Arduino LCD I2C Tutorial | Arduino 1
 How to interface MQ-2 Gas Sensor with Arduino Uno (with Code and Library)
 	https://www.youtube.com/watch?v=cmL7QgTNv7M
 
+	https://circuitdigest.com/microcontroller-projects/interfacing-mq2-gas-sensor-with-arduino
+
 Smoke Detector
 	https://www.youtube.com/watch?v=hQ61BkvJCuc
 
@@ -34,7 +36,7 @@ Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 
 	https://lastminuteengineers.com/ws2812b-arduino-tutorial/
 
- ESP32 Microcontroller
+ESP32 Microcontroller
 	https://www.youtube.com/watch?v=AitCKcyjHuQ
 	https://www.youtube.com/watch?v=CD8VJl27n94
 
