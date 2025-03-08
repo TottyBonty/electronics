@@ -4,7 +4,7 @@
 
 //SIM800L declaration
 SoftwareSerial mySerial(10,11);
-String receiverNumber = "+63918xxxxxx"; //-> change with the number where we send the SMS message
+String receiverNumber = "+63918xxxxxxx"; //-> change with the number where we send the SMS message
 
 //LCD I2C declaration
 const uint8_t lcdAddress = 0x3F;
@@ -27,8 +27,6 @@ float sensorValue;
 int smokeDetected = 0;
 
 const int sim800LEnabled = 1;
-
-const String blankLine = "                ";
 
 void setup() {
   pinMode(buzzer,OUTPUT);
@@ -58,50 +56,51 @@ void setup() {
 
 void loop() {
   sensorValue = analogRead(smokeA0);
- 
-  lcdPrint("Smoke : ", 0, 0);
-      
-  if (sensorValue > smokeThreshold) {
-    lcd.print("Detected");
+
+  if (sensorValue > smokeThreshold) { // if threshold reach
+    // Show the current Sensor Status in the LCD
+    lcd.clear();
+    lcdPrint("Value : ", 0, 0);
+    lcd.print(sensorValue);
+    lcdPrint("Smoke : Detected", 0, 1);
     
+    tone(buzzer, 1000, 200); // sound on the buzzer
+    
+    digitalWrite(ledGreen,LOW); // turn off the green light
+    
+    digitalWrite(ledRed,HIGH); // blink the red light 
+    delay(1000);
+    digitalWrite(ledRed,LOW);
+    
+    // Send a SMS message once
     if (smokeDetected == 0) {
       sendMessage("WARNING Smoke Detected!!!");
       smokeDetected = 1;
     }
-    
-    tone(buzzer,1000,200);
-    digitalWrite(ledRed,HIGH);
-    delay(1000);
-    digitalWrite(ledRed,LOW);
-    digitalWrite(ledGreen,LOW);
   } else {
-    lcd.print("None    ");
+    // Show the current Sensor Status in the LCD
+    lcd.clear();
+    lcdPrint("Value : ", 0, 0);
+    lcd.print(sensorValue);
+    lcdPrint("Smoke : None", 0, 1);
+
+    noTone(buzzer); // sound off the buzzer
+    digitalWrite(ledRed,LOW); // turn off the green light
+    digitalWrite(ledGreen,HIGH); // turn on the green light
     
+    // Send a SMS message once
     if (smokeDetected == 1) {
       sendMessage("No more Smoke Detected.");
       smokeDetected = 0;
     }
-
-    noTone(buzzer);    
-    digitalWrite(ledRed,LOW);
-    digitalWrite(ledGreen,HIGH);
   }
 
-  lcdPrint(blankLine, 0, 1);
-  lcdPrint("Value : ", 0, 1);
-  lcd.print(sensorValue);
-  
   delay(1000); // wait 1s for next reading
-  
-  // if (mySerial.available()) {
-  //   delay(1000);
-  //   Serial.println(mySerial.readString());
-  // }
 }
 
-void lcdPrint(String message, int x, int y) {
+void lcdPrint(const char message[], int x, int y) {
   lcd.setCursor(x, y);
-  lcd.print(message);  
+  lcd.print(message);
 }
 
 void setupSIM800L() {
@@ -124,7 +123,7 @@ void setupSIM800L() {
   lcd.clear();
 }
 
-void sendMessage(String message){
+void sendMessage(const char message[]){
   if (sim800LEnabled == 1) {
     mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
     Serial.println(readSerial());
