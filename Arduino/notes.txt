@@ -16,6 +16,7 @@ How to interface MQ-2 Gas Sensor with Arduino Uno (with Code and Library)
 	https://www.youtube.com/watch?v=cmL7QgTNv7M
 
 	https://circuitdigest.com/microcontroller-projects/interfacing-mq2-gas-sensor-with-arduino
+	https://projecthub.arduino.cc/m_karim02/arduino-and-mq2-gas-sensor-f3ae33
 
 Smoke Detector
 	https://www.youtube.com/watch?v=hQ61BkvJCuc
