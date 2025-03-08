@@ -45,5 +45,7 @@ DIY Arduino Uno
 Best Way to Play Audio on Arduino! DFPlayer mini / MP3-TF-16p Tutorial
 	http://youtube.com/watch?v=7WiSeQxb1bU
 
+	https://github.com/RalphBacon/MP3-Player-DFPlayer/tree/master
+
 
 
