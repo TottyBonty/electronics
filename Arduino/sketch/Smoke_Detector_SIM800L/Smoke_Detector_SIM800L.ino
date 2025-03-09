@@ -26,7 +26,7 @@ float sensorValue;
 
 int smokeDetected = 0;
 
-const int sim800LEnabled = 1;
+const int sim800LEnabled = 0;
 
 void setup() {
   pinMode(buzzer,OUTPUT);
@@ -79,20 +79,20 @@ void loop() {
     }
   } else {
     // Show the current Sensor Status in the LCD
-    lcd.clear();
-    lcdPrint("Value : ", 0, 0);
-    lcd.print(sensorValue);
-    lcdPrint("Smoke : None", 0, 1);
+    // lcd.clear();
+    // lcdPrint("Value : ", 0, 0);
+    // lcd.print(sensorValue);
+    // lcdPrint("Smoke : None", 0, 1);
 
-    noTone(buzzer); // sound off the buzzer
-    digitalWrite(ledRed,LOW); // turn off the green light
-    digitalWrite(ledGreen,HIGH); // turn on the green light
+    // noTone(buzzer); // sound off the buzzer
+    // digitalWrite(ledRed,LOW); // turn off the green light
+    // digitalWrite(ledGreen,HIGH); // turn on the green light
     
     // Send a SMS message once
-    if (smokeDetected == 1) {
-      sendMessage("No more Smoke Detected.");
-      smokeDetected = 0;
-    }
+    // if (smokeDetected == 1) {
+      // sendMessage("No more Smoke Detected.");
+      // smokeDetected = 0;
+    // }
   }
 
   delay(1000); // wait 1s for next reading
