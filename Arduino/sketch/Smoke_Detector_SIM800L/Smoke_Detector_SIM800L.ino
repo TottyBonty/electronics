@@ -19,6 +19,7 @@ const int smokeA0 = A0;
 const int buzzer = 9;
 const int ledRed = 8;
 const int ledGreen = 7;
+const int relay = 6;
 
 //Sensor Smoke variables
 const int smokeThreshold = 200;
@@ -26,12 +27,14 @@ float sensorValue;
 
 int smokeDetected = 0;
 
-const int sim800LEnabled = 0;
+const int sim800LEnabled = 1;
 
 void setup() {
   pinMode(buzzer,OUTPUT);
   pinMode(ledGreen,OUTPUT);
   pinMode(ledRed,OUTPUT);
+  
+  pinMode(relay, OUTPUT);
   
   pinMode(smokeA0,INPUT);
 
@@ -52,16 +55,21 @@ void setup() {
   noTone(buzzer);
 
   setupSIM800L();
+
+  //turn off the relay (for this one sending a LOW signal will trigger the relay)
+  digitalWrite(relay, LOW);
 }
 
 void loop() {
   sensorValue = analogRead(smokeA0);
 
+  // Show the current Sensor Status in the LCD
+  lcd.clear();
+  lcdPrint("Value : ", 0, 0);
+  lcd.print(sensorValue);
+  
   if (sensorValue > smokeThreshold) { // if threshold reach
     // Show the current Sensor Status in the LCD
-    lcd.clear();
-    lcdPrint("Value : ", 0, 0);
-    lcd.print(sensorValue);
     lcdPrint("Smoke : Detected", 0, 1);
     
     tone(buzzer, 1000, 200); // sound on the buzzer
@@ -71,6 +79,9 @@ void loop() {
     digitalWrite(ledRed,HIGH); // blink the red light 
     delay(1000);
     digitalWrite(ledRed,LOW);
+
+    //turn on the relay 
+    digitalWrite(relay, HIGH);
     
     // Send a SMS message once
     if (smokeDetected == 0) {
@@ -78,21 +89,20 @@ void loop() {
       smokeDetected = 1;
     }
   } else {
-    // Show the current Sensor Status in the LCD
-    // lcd.clear();
-    // lcdPrint("Value : ", 0, 0);
-    // lcd.print(sensorValue);
-    // lcdPrint("Smoke : None", 0, 1);
+    lcdPrint("Smoke : None", 0, 1);
 
-    // noTone(buzzer); // sound off the buzzer
-    // digitalWrite(ledRed,LOW); // turn off the green light
-    // digitalWrite(ledGreen,HIGH); // turn on the green light
+    noTone(buzzer); // sound off the buzzer
+    digitalWrite(ledRed,LOW); // turn off the green light
+    digitalWrite(ledGreen,HIGH); // turn on the green light
     
     // Send a SMS message once
-    // if (smokeDetected == 1) {
-      // sendMessage("No more Smoke Detected.");
-      // smokeDetected = 0;
-    // }
+    if (smokeDetected == 1) {
+      sendMessage("No more Smoke Detected.");
+      smokeDetected = 0;
+    }    
+
+    //turn off the relay 
+    digitalWrite(relay, LOW);
   }
 
   delay(1000); // wait 1s for next reading
