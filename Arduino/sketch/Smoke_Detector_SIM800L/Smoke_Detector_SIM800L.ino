@@ -2,26 +2,26 @@
 #include <LiquidCrystal_I2C.h>
 #include <SoftwareSerial.h>
 
-//SIM800L declaration
-SoftwareSerial mySerial(10,11);
-String receiverNumber = "+639189798239"; //-> change with the number where we send the SMS message
+// SIM800L declaration
+SoftwareSerial mySerial(10, 11);
+String receiverNumber = "+63918xxxxxxx"; //-> change with the number where we send the SMS message
 
-//LCD I2C declaration
+// LCD I2C declaration
 const uint8_t lcdAddress = 0x3F;
 const uint8_t lcd_cols = 16;
 const uint8_t lcd_rows = 2;
 LiquidCrystal_I2C lcd(lcdAddress, lcd_cols, lcd_rows);  //Defining 16 columns and 2 rows of lcd display
 
-//Input Pin declaration
+// Input Pin declaration
 const int smokeA0 = A0;
 
-//Output Pin declaration
+// Output Pin declaration
 const int buzzer = 9;
 const int ledRed = 8;
 const int ledGreen = 7;
 const int relay = 6;
 
-//Sensor Smoke variables
+// Sensor Smoke variables
 const int smokeThreshold = 200;
 float sensorValue;
 
@@ -56,7 +56,7 @@ void setup() {
 
   setupSIM800L();
 
-  //turn off the relay (for this one sending a LOW signal will trigger the relay)
+  // turn off the relay (for this one sending a LOW signal will trigger off the relay)
   digitalWrite(relay, LOW);
 }
 
@@ -80,7 +80,7 @@ void loop() {
     delay(1000);
     digitalWrite(ledRed,LOW);
 
-    //turn on the relay 
+    // turn on the relay (for this one sending a LOW signal will trigger on the relay)
     digitalWrite(relay, HIGH);
     
     // Send a SMS message once
@@ -101,7 +101,7 @@ void loop() {
       smokeDetected = 0;
     }    
 
-    //turn off the relay 
+    // turn off the relay (for this one sending a LOW signal will trigger off the relay)
     digitalWrite(relay, LOW);
   }
 
@@ -135,7 +135,7 @@ void setupSIM800L() {
 
 void sendMessage(const char message[]){
   if (sim800LEnabled == 1) {
-    mySerial.println("AT+CMGF=1");     //Sets the GSM Module in Text Mode
+    mySerial.println("AT+CMGF=1");     // Sets the GSM Module in Text Mode
     Serial.println(readSerial());
     mySerial.println("AT+CMGS=\"" + receiverNumber + "\"");
     Serial.println(readSerial());
