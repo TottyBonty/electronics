@@ -34,6 +34,9 @@ SMS Messaging with Arduino and SIM800L V2
 
 	https://arduino.stackexchange.com/questions/79298/sim800l-v2-0-network-problem
 
+	AT Commands for Sim module
+	https://stackoverflow.com/questions/25969855/at-command-to-know-own-phone-number
+
 Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 
 	https://lastminuteengineers.com/ws2812b-arduino-tutorial/
