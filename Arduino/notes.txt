@@ -37,6 +37,10 @@ SMS Messaging with Arduino and SIM800L V2
 	AT Commands for Sim module
 	https://stackoverflow.com/questions/25969855/at-command-to-know-own-phone-number
 
+SIM900A
+	https://forum.arduino.cc/t/gsm-sim900a/427568/10
+	https://www.instructables.com/GSM-SIM900A-With-Arduino/
+
 Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 
 	https://lastminuteengineers.com/ws2812b-arduino-tutorial/
@@ -44,6 +48,10 @@ Controlling WS2812B Addressable LEDs (LED Strips) with Arduino
 ESP32 Microcontroller
 	https://www.youtube.com/watch?v=AitCKcyjHuQ
 	https://www.youtube.com/watch?v=CD8VJl27n94
+
+	https://grobotronics.com/esp32-development-board-devkit-v1.html?sl=en&srsltid=AfmBOoq7iDs_paFXdcuFEI46Vo6vdIG25i9_kMpUUUDq8P7c9TB_ckj-	
+	https://www.elprocus.com/esp32-development-board/
+	http://github.com/SmartArduino/SZDOITWiKi/wiki/ESP8266---ESP32
 
 DIY Arduino Uno
 	https://www.circuits-diy.com/how-to-make-your-own-arduino-uno-pcb-atmega328p/
