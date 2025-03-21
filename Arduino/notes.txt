@@ -64,12 +64,13 @@ Best Way to Play Audio on Arduino! DFPlayer mini / MP3-TF-16p Tutorial
 
 
 TFT Display ST7735 Drive IC
+	https://github.com/ZPaulWeleschuk/Arduino-How-To-Guide-2.4-TFT-Display-ST7789
+
 	https://forum.arduino.cc/t/esp8266-wifi-analyzer-using-st7735-2-4-inch-240x320-spi-tft-screen/1185014
 	https://www.electronics-lab.com/project/using-st7735-1-8-color-tft-display-arduino/
 	https://www.youtube.com/watch?v=NAyt5kQcn-A
 
 	https://forum.arduino.cc/t/2-4-inch-st7789-tft-spi-display-with-arduino-boards/1251022
-
 
 	https://www.youtube.com/watch?v=n13RQMNFDOA
 
