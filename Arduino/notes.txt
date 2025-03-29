@@ -77,3 +77,9 @@ TFT Display ST7735 Drive IC
 Circuit Design
 	https://github.com/fritzing/fritzing-app/tree/develop
 	https://fritzing.org/download
+	https://arduinofactory.fr/en/download-fritzing-for-free/#Download_Fritzing_093b_for_FREE
+
+	https://arduinofactory.fr/en/tinkercad-software/
+
+
+
