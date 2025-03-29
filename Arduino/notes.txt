@@ -75,4 +75,5 @@ TFT Display ST7735 Drive IC
 	https://www.youtube.com/watch?v=n13RQMNFDOA
 
 Circuit Design
-https://github.com/fritzing/fritzing-app/tree/develop
+	https://github.com/fritzing/fritzing-app/tree/develop
+	https://fritzing.org/download
