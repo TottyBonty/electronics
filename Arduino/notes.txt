@@ -76,6 +76,11 @@ TFT Display ST7735/ST7789
 
 	Getting Started With Arduino Uno 2.4 inch TFT Touch Screen LCD Shield ST7789V Driver 240x320 Display
 	https://www.youtube.com/watch?v=S0FHdr_qyeI
+	https://www.instructables.com/Arduino-24-Touch-Screen-LCD-Shield-Tutorial/
+	How to Display Image in TFT Display -> https://www.youtube.com/watch?v=PetjMYLG0ic
+
+	Arduino ST7789 Display Tutorial
+	https://www.youtube.com/watch?v=-nECx4DOE84
 
 	
 Circuit Design
