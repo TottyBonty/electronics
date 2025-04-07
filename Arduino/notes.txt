@@ -63,7 +63,7 @@ Best Way to Play Audio on Arduino! DFPlayer mini / MP3-TF-16p Tutorial
 	https://github.com/RalphBacon/MP3-Player-DFPlayer/tree/master
 
 
-TFT Display ST7735/ST7789
+TFT Display
 	https://github.com/ZPaulWeleschuk/Arduino-How-To-Guide-2.4-TFT-Display-ST7789 (/)
 	https://forum.arduino.cc/t/2-4-inch-st7789-tft-spi-display-with-arduino-boards/1251022
 
@@ -72,15 +72,20 @@ TFT Display ST7735/ST7789
 	
 	
 	Arduino Tutorial: 1.8" TFT Color Display ST7735 128x160 -> https://www.youtube.com/watch?v=NAyt5kQcn-A	
-	Arduino Tutorial: 2.4" TFT Color Display ILI9341 240x320 ->https://www.youtube.com/watch?v=n13RQMNFDOA
-
+	
 	Getting Started With Arduino Uno 2.4 inch TFT Touch Screen LCD Shield ST7789V Driver 240x320 Display
-	https://www.youtube.com/watch?v=S0FHdr_qyeI
-	https://www.instructables.com/Arduino-24-Touch-Screen-LCD-Shield-Tutorial/
-	How to Display Image in TFT Display -> https://www.youtube.com/watch?v=PetjMYLG0ic
+		https://www.youtube.com/watch?v=S0FHdr_qyeI
+	
+	How to Display Image in TFT Display ST7789 Driver
+		https://www.youtube.com/watch?v=PetjMYLG0ic
 
 	Arduino ST7789 Display Tutorial
-	https://www.youtube.com/watch?v=-nECx4DOE84
+		https://www.youtube.com/watch?v=-nECx4DOE84
+
+	Arduino Tutorial: 2.4" TFT Color Display ILI9341 240x320 ->https://www.youtube.com/watch?v=n13RQMNFDOA	
+	
+	Arduino Uno 2.4 inch TFT Touch Screen LCD Shield ST7789V ILI93XX and HX83XX Driver 240x320 Display
+		https://www.instructables.com/Arduino-24-Touch-Screen-LCD-Shield-Tutorial/	
 
 	
 Circuit Design
